@@ -337,98 +337,12 @@ template {
   display: none;
 }
 
-.draw-canvas {
-  position: relative;
-}
-
-.shell {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.shell .shell-titlebar {
-  position: relative;
-  z-index: 2;
-}
-
-.shell .shell-content {
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  z-index: 1;
-}
-
-.shell .titlebar {
-  display: flex;
-  flex-direction: row;
+.page-container {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-}
-
-.shell .titlebar .title-bar-menu {
-  position: absolute;
-  left: 0;
-  width: 200px;
-  height: 200px;
-}
-
-.shell .titlebar .titlebar-middle {
-  -webkit-app-region: drag;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-}
-
-.shell .titlebar .titlebar-middle .title {
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
-.shell .titlebar .title {
-  font-size: 13px;
-  align-self: center;
-  justify-self: center;
-}
-
-.svg-container {
-  position: relative;
-}
-
-.svg-container .svg-image {
-  position: relative;
-}
-
-.editor-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.launch {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  -webkit-app-region: drag;
-}
-
-.launch .launch-content {
-  z-index: 1;
-  margin: auto;
-  font-weight: 900;
 }
 
 body {
