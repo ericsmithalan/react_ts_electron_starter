@@ -22,7 +22,6 @@
     .titlebar {
         display: flex;
         flex-direction: row;
-        @include size-fill-absolute();
 
         .title-bar-menu {
             position: absolute;

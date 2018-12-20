@@ -1,25 +1,15 @@
 "use strict";
-
-import "../index.css";
-
 import * as React from "react";
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {
-    IPureControlProps,
-    IPureControlState,
-    PureControlBase
-} from "@app/components";
+import { Shell } from "@app/shell/Shell";
+import { HomePage } from "@app/pages";
+import "./app.scss";
 
-import { Shell, ShellContainer } from "@electron/index";
+export interface IAppProps {}
 
-import { EditorContainer } from "@app/pages";
+export interface IAppState {}
 
-export interface IAppProps extends IPureControlProps {}
-
-export interface IAppState extends IPureControlState {}
-
-export class App extends PureControlBase<IAppProps, IAppState> {
+export class App extends React.Component<IAppProps, IAppState> {
     private _shellRef: React.RefObject<Shell>;
 
     public constructor(props: IAppProps) {
@@ -28,22 +18,8 @@ export class App extends PureControlBase<IAppProps, IAppState> {
         this._shellRef = React.createRef();
     }
 
-    public static defaultProps: Partial<IAppProps> = {};
-
-    protected loaded() {
-        super.loaded();
-    }
-
-    protected unLoaded() {
-        super.unLoaded();
-    }
-
     public render() {
-        return (
-            <ShellContainer ref={this._shellRef}>
-                {this._renderContent()}
-            </ShellContainer>
-        );
+        return <Shell ref={this._shellRef}>{this._renderContent()}</Shell>;
     }
 
     private _renderContent(): JSX.Element {
@@ -57,12 +33,12 @@ export class App extends PureControlBase<IAppProps, IAppState> {
                     <Route
                         exact={true}
                         path="/"
-                        render={(props) => <EditorContainer {...props} />}
+                        render={(props) => <HomePage {...props} />}
                     />
                     <Route
                         exact={true}
                         path="/home"
-                        render={(props) => <EditorContainer {...props} />}
+                        render={(props) => <HomePage {...props} />}
                     />
                 </Switch>
             </BrowserRouter>

@@ -1,16 +1,11 @@
 import * as React from "react";
+import "./home.scss";
 
-import { IPageProps, IPageState, PageBase } from "@app/components";
+export interface IHomePageProps {}
 
-export interface IHomePageProps extends IPageProps {}
+export interface IHomePageState {}
 
-export interface IHomePageState extends IPageState {}
-
-export class HomePage extends PageBase<IPageProps, IPageState> {
-    protected loaded() {
-        super.loaded();
-    }
-
+export class HomePage extends React.Component<IHomePageProps, IHomePageState> {
     public render() {
         return (
             <div className="page-container">

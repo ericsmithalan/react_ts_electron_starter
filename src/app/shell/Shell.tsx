@@ -1,25 +1,20 @@
 import * as React from "react";
 
-import { ControlBase, IControlProps, IControlState } from "@app/components";
+import { Titlebar } from "@app/shell/Shell.Titlebar";
+import "./shell.scss";
 
-import {
-    Titlebar,
-    IShellDispatchFromProps,
-    IShellPropsFromState
-} from "@electron/index";
 /** PROPS */
-export interface IShellProps
-    extends IControlProps,
-        IShellPropsFromState,
-        IShellDispatchFromProps {
+export interface IShellProps {
     titlebarHeight: number;
+    isTitlebarVisible: boolean;
+    title: string;
 }
 
 /** STATE */
-export interface IShellState extends IControlState {}
+export interface IShellState {}
 
 /** SHELL */
-export class Shell extends ControlBase<IShellProps, IShellState> {
+export class Shell extends React.Component<IShellProps, IShellState> {
     __name = "Shell";
     private _titlebar: React.RefObject<Titlebar>;
 
@@ -30,15 +25,12 @@ export class Shell extends ControlBase<IShellProps, IShellState> {
     }
 
     public static defaultProps: Partial<IShellProps> = {
-        titlebarHeight: 30
+        titlebarHeight: 30,
+        isTitlebarVisible: true
     };
 
     public get titlebar(): Titlebar {
         return this._titlebar.current as Titlebar;
-    }
-
-    protected loaded() {
-        super.loaded();
     }
 
     public render() {

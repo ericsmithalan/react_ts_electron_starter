@@ -3,19 +3,12 @@ declare const window: any;
 
 import * as React from "react";
 
-import {
-    IPureControlProps,
-    IPureControlState,
-    IconButton,
-    PureControlBase
-} from "@app/components";
-
-export interface ITitlebarProps extends IPureControlProps {
+export interface ITitlebarProps {
     height: number;
     title: string;
 }
 
-export interface ITitlebarState extends IPureControlState {
+export interface ITitlebarState {
     showMenu: boolean;
 }
 
@@ -24,7 +17,7 @@ export interface ITitlebarTheme {
     height: number;
 }
 
-export class Titlebar extends PureControlBase<ITitlebarProps, ITitlebarState> {
+export class Titlebar extends React.Component<ITitlebarProps, ITitlebarState> {
     __name = "Titlebar";
     //hack to bypass an issue
     private _remote = window.require("electron").remote;
@@ -76,9 +69,7 @@ export class Titlebar extends PureControlBase<ITitlebarProps, ITitlebarState> {
                 }}
                 className="titlebar"
             >
-                <div className="titlebar-left">
-                    <IconButton onClick={(e) => this.toggleMenu()} />
-                </div>
+                <div className="titlebar-left" />
 
                 <div className="titlebar-middle">{this._renderTitle()}</div>
 
